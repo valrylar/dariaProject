@@ -1,0 +1,62 @@
+<div id = "pressure" style="width:260px;">
+<div id = "kpp" style="width:260px;">
+<div id = "temp" style="width:260px;">
+</div>
+<script>
+class orgDataInput {
+    constructor(labelName, inputName, divId) {
+        this.labelName = labelName;
+        this.inputName = inputName;
+        this.divId = divId;
+    }
+    
+    get lblName() {
+        return this.labelName;
+    }
+    
+    set lblName(labelName) {
+        this.labelName = labelName;
+    }
+    
+    get inName() {
+        return this.inputName;
+    }
+    
+    set inName(inputName) {
+        this.inputName = inputName;
+    }
+    
+   get divI() {
+        return this.divId;
+    }
+    
+    set divI(divId) {
+        this.divId = divId;
+    }
+    
+    createInput(inputName) {
+        var inputN = document.createElement("input");
+        document.getElementById(this.divI).appendChild(inputN);
+    }
+    
+    createLabel(labelText) {
+        var labelN = document.createElement("label");
+        var labelNode = document.createTextNode(labelText);
+        labelN.appendChild(labelNode);
+        document.getElementById(this.divI).appendChild(labelN);
+    }
+    
+    out() {
+        this.createLabel(this.lblName);
+        this.createInput(this.inName);
+        
+    }
+
+}
+
+
+let a = new orgDataInput("Давление","Pressure", "pressure");
+a.out();
+let b = new orgDataInput("Температура","Pressure", "temp").out();
+
+</script>
